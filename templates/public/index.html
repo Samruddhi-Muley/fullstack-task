@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flipr Landing Page</title>
+</head>
+<body>
+
+<h2>Our Projects</h2>
+{% for p in projects %}
+<div>
+    <img src="{{ p.image }}" width="200">
+    <h3>{{ p.name }}</h3>
+    <p>{{ p.description }}</p>
+    <button>Read More</button>
+</div>
+{% endfor %}
+
+<hr>
+
+<h2>Happy Clients</h2>
+{% for c in clients %}
+<div>
+    <img src="{{ c.image }}" width="100">
+    <p>{{ c.description }}</p>
+    <strong>{{ c.name }}</strong> - {{ c.designation }}
+</div>
+{% endfor %}
+
+<hr>
+
+<h2>Contact Form</h2>
+<form action="/contact" method="post">
+    <input name="name" placeholder="Full Name" required><br>
+    <input name="email" placeholder="Email" required><br>
+    <input name="mobile" placeholder="Mobile" required><br>
+    <input name="city" placeholder="City" required><br>
+    <button type="submit">Submit</button>
+</form>
+
+<hr>
+
+<h2>Newsletter</h2>
+<form action="/subscribe" method="post">
+    <input name="email" placeholder="Email">
+    <button type="submit">Subscribe</button>
+</form>
+
+</body>
+</html>

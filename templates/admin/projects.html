@@ -1,0 +1,12 @@
+<h2>Add Project</h2>
+<form method="post">
+    <input name="name" placeholder="Project Name"><br>
+    <input name="image" placeholder="Image URL"><br>
+    <textarea name="description"></textarea><br>
+    <button>Add</button>
+</form>
+
+<h3>All Projects</h3>
+{% for p in projects %}
+<p>{{ p.name }}</p>
+{% endfor %}
