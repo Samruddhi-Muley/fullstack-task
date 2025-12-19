@@ -5,11 +5,18 @@ public_bp = Blueprint("public", __name__)
 
 @public_bp.route("/")
 def home():
+    try:
+        projects_collection = db.projects
+        all_projects = list(projects_collection.find())
+    except Exception as e:
+        print("Mongo error:", e)
+        all_projects = []
+
     return render_template(
-        "public/index.html",
-        projects=list(projects.find()),
-        clients=list(clients.find())
+        "index.html",
+        projects=all_projects
     )
+
 
 @public_bp.route("/contact", methods=["POST"])
 def contact():
